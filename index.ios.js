@@ -11,44 +11,59 @@ import {
   StyleSheet,
   Text,
   Image,
-  View
+  View,
+  ListView
 } from 'react-native';
 
-class EventBriefView extends Component {
+class YallaApp extends Component {
+  constructor() {
+    super();
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state = {
+      dataSource: ds.cloneWithRows(events.data),
+    };
+  }
+
   render() {
-    console.log(this.props.event);
     return (
-      <View style={styles.itemContainer}>
-        <View style={styles.itemDescription}>
-          <Text style={styles.itemTitle}>{this.props.event.title}</Text>
-          <Text style={styles.itemOwner}>By: {this.props.event.owner}</Text>
-          <Text style={styles.itemExpiry}>{this.props.event.expiry}</Text>
-        </View>
-        <View style={styles.itemParticipants}>
-          <Image source={{uri: this.props.event.pic}} style={styles.itemPicture}/>
-          <Text style={styles.itemParticipantsCount}>+{this.props.event.attendants.length}</Text>
-        </View>
+      <View style={styles.container}>
+        <Text style={styles.welcome}>Hello Ahmed!</Text>
+        <ListView style={styles.eventList}
+          dataSource={this.state.dataSource}
+          renderRow={(event) => {return this._renderEventBrief(event)}} />
       </View>
     );
   }
-}
 
-class YallaApp extends Component {
-  render() {
+  _renderEventBrief(event) {
     return (
-      <View style={styles.eventList}>
-        <EventBriefView event={events.data[0]}></EventBriefView>
-        <EventBriefView event={events.data[1]}></EventBriefView>
+      <View style={styles.itemContainer}>
+        <View style={styles.itemDescription}>
+          <Text style={styles.itemTitle}>{event.title}</Text>
+          <Text style={styles.itemOwner}>By: {event.owner}</Text>
+          <Text style={styles.itemExpiry}>{event.expiry}</Text>
+        </View>
+        <View style={styles.itemParticipants}>
+          <Image source={{uri: event.pic}} style={styles.itemPicture}/>
+          <Text style={styles.itemParticipantsCount}>+{event.attendants.length}</Text>
+        </View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    paddingTop: 10
+  },
+
+  welcome: {
+    fontSize: 30,
+    paddingLeft: 30
+  },
+
   eventList: {
-    flex: 0,
-    alignItems: 'flex-start',
-    justifyContent: 'center'
+    paddingTop: 10
   },
 
   itemContainer: {
