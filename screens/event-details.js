@@ -3,6 +3,7 @@ import {
   AppRegistry,
   Text,
   View,
+  TouchableOpacity,
   StyleSheet
 } from 'react-native';
 
@@ -16,9 +17,13 @@ class EventDetailsScreen extends Component {
         </View>
         <Text style={styles.normal}>Current Plan: </Text>
         <Text style={styles.content}>Let's meet</Text>
-        <Text style={styles.selectable}>{this.props.event.expiry}</Text>
+        <TouchableOpacity>
+          <Text style={styles.selectable}>{this.props.event.expiry}</Text>
+        </TouchableOpacity>
         <Text style={styles.content}>at</Text>
-        <Text style={styles.selectable}>{this.props.event.place}</Text>
+        <TouchableOpacity>
+          <Text style={styles.selectable}>{this.props.event.place}</Text>
+        </TouchableOpacity>
       </View>
     );
   }
