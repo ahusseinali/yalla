@@ -44,6 +44,7 @@ class YallaApp extends Component {
           <Text style={styles.itemOwner}>By: {event.owner}</Text>
           <Text style={styles.itemExpiry}>{event.expiry}</Text>
         </View>
+        <View style={styles.stretcher} />
         <View style={styles.itemParticipants}>
           <Image source={{uri: event.pic}} style={styles.itemPicture}/>
           <Text style={styles.itemParticipantsCount}>+{event.attendants.length}</Text>
@@ -80,8 +81,8 @@ const styles = StyleSheet.create({
 
   itemDescription: {
     flex: 1,
-    alignItems: 'flex-start', // horizontally align items
-    justifyContent: 'center'  //vertically align items
+    alignItems: 'flex-start',
+    justifyContent: 'center'
   },
 
   itemTitle: {
@@ -96,6 +97,10 @@ const styles = StyleSheet.create({
   itemExpiry: {
     fontSize: 16,
     fontStyle: 'italic'
+  },
+
+  stretcher: {
+    flex: 1
   },
 
   itemParticipants: {
