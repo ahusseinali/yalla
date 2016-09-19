@@ -10,12 +10,12 @@ class EventDetailsScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Chess Game</Text>
+        <Text style={styles.title}>{this.props.event.title}</Text>
         <Text style={styles.normal}>Current Plan: </Text>
         <Text style={styles.content}>Let's meet</Text>
-        <Text style={styles.selectable}>Today at 8 pm</Text>
+        <Text style={styles.selectable}>{this.props.event.expiry}</Text>
         <Text style={styles.content}>at</Text>
-        <Text style={styles.selectable}>Building 16</Text>
+        <Text style={styles.selectable}>{this.props.event.place}</Text>
       </View>
     );
   }

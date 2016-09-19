@@ -34,7 +34,9 @@ class YallaApp extends Component {
         )
       case "EventDetails":
         return(
-          <EventDetailsScreen {...globalNavigatorProps} />
+          <EventDetailsScreen
+          {...globalNavigatorProps}
+          event={route.event} />
         )
       default:
         return(
