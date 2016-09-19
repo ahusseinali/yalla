@@ -12,7 +12,8 @@ import {
   Text,
   Image,
   View,
-  ListView
+  ListView,
+  TouchableOpacity
 } from 'react-native';
 
 class YallaApp extends Component {
@@ -37,7 +38,7 @@ class YallaApp extends Component {
 
   _renderEventBrief(event) {
     return (
-      <View style={styles.itemContainer}>
+      <TouchableOpacity style={styles.itemContainer} onPress={(e) => console.log(event)}>
         <View style={styles.itemDescription}>
           <Text style={styles.itemTitle}>{event.title}</Text>
           <Text style={styles.itemOwner}>By: {event.owner}</Text>
@@ -47,7 +48,7 @@ class YallaApp extends Component {
           <Image source={{uri: event.pic}} style={styles.itemPicture}/>
           <Text style={styles.itemParticipantsCount}>+{event.attendants.length}</Text>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 }
