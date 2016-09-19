@@ -7,10 +7,13 @@ import {
 } from 'react-native';
 
 class EventDetailsScreen extends Component {
+  // Title is contained in a wrapper view to hack displaying border bottom in Android.
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>{this.props.event.title}</Text>
+        <View style={styles.bottomBorder}>
+          <Text style={styles.title}>{this.props.event.title}</Text>
+        </View>
         <Text style={styles.normal}>Current Plan: </Text>
         <Text style={styles.content}>Let's meet</Text>
         <Text style={styles.selectable}>{this.props.event.expiry}</Text>
@@ -29,8 +32,15 @@ const styles = StyleSheet.create({
     margin: 20
   },
 
+  bottomBorder: {
+    borderBottomColor: '#999',
+    borderBottomWidth: 1,
+    paddingBottom: 10,
+    marginBottom: 20
+  },
+
   title: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: 'bold'
   },
 
@@ -39,11 +49,11 @@ const styles = StyleSheet.create({
   },
 
   content: {
-    fontSize: 35
+    fontSize: 40
   },
 
   selectable: {
-    fontSize: 35,
+    fontSize: 40,
     backgroundColor: '#add8e6'
   }
 });
