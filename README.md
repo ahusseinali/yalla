@@ -1,12 +1,20 @@
 #Yalla App
 
-##Installation (Android)
-1. Follow instructions on [React-Native Install Link](https://facebook.github.io/react-native/docs/getting-started.html).
-2. In Windows installation, create new Environment Variable **ANDROID_HOME**.
-3. Make sure **ANDROID_HOME** points to the installed android-sdk path.
-4. Add _%ANDROID_HOME%\tools_ and _%ANDROID_HOME%\platform-tools_ to **PATH** in Environment Variables.
-5. In Cmd, navigate to repository.
-6. Run `react-native run-android`.
+##Installation
+First, follow instructions on [React-Native Install Link](https://facebook.github.io/react-native/docs/getting-started.html).
+
+###Android
+1. In Windows installation, create new Environment Variable **ANDROID_HOME**.
+2. Make sure **ANDROID_HOME** points to the installed android-sdk path.
+3. Add _%ANDROID_HOME%\tools_ and _%ANDROID_HOME%\platform-tools_ to **PATH** in Environment Variables.
+4. In Cmd, navigate to repository.
+5. Run `react-native run-android`.
+
+###iOS (on a mac)
+1. Navigate to the ios directory
+2. Run `npm install`
+3. Make sure you have Xcode installed
+3. Open `YallaApp.xcodeproj` in Xcode and run using the simulator
 
 ## Common errors
 1. React Native complains about not finding _android-x_ (where 'x' is some version number)<br />
